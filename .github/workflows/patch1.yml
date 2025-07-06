@@ -1,0 +1,26 @@
+name: Patch Recovery
+
+on:
+  workflow_dispatch:
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+
+      - name: Download file from Catbox
+        run: curl -L -o recovery.img "https://files.catbox.moe/pnqzk8.yml"
+
+      - name: (Optional) Patch the file
+        run: |
+          echo "Pretend we're patching recovery.img"
+          # Example: ./patch_tool.sh recovery.img
+
+      - name: Upload patched recovery
+        uses: actions/upload-artifact@v3
+        with:
+          name: patched-recovery
+          path: recovery.img
