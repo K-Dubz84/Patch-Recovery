@@ -9,13 +9,16 @@ on:
         default: 'https://transfer.sh/(RECOMMENDED)'
 
 env:
-  RECOVERY_URL: https://oshi.at/Rpjg
+  RECOVERY_URL: https://catbox.moe
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Download recovery.img from Catbox
+      run: curl -L -o recovery.img "https://files.catbox.moe/x80si5.yml"
+
     - name: Check Out
       uses: actions/checkout@main
 
