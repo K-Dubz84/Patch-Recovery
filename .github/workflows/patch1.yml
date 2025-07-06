@@ -20,7 +20,7 @@ jobs:
           # Example: ./patch_tool.sh recovery.img
 
       - name: Upload patched recovery
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: patched-recovery
           path: recovery.img
